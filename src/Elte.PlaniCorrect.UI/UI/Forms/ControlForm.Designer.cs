@@ -152,7 +152,7 @@
             // toolbar_Add_AddRay
             // 
             this.toolbar_Add_AddRay.Name = "toolbar_Add_AddRay";
-            this.toolbar_Add_AddRay.Size = new System.Drawing.Size(127, 22);
+            this.toolbar_Add_AddRay.Size = new System.Drawing.Size(152, 22);
             this.toolbar_Add_AddRay.Text = "Add ray";
             // 
             // toolStripButton1
@@ -199,7 +199,7 @@
             // toolbar_Add_AddCircle
             // 
             this.toolbar_Add_AddCircle.Name = "toolbar_Add_AddCircle";
-            this.toolbar_Add_AddCircle.Size = new System.Drawing.Size(127, 22);
+            this.toolbar_Add_AddCircle.Size = new System.Drawing.Size(152, 22);
             this.toolbar_Add_AddCircle.Tag = Elte.PlaniCorrect.UI.Commands.AddCircle;
             this.toolbar_Add_AddCircle.Text = "Add circle";
             this.toolbar_Add_AddCircle.Click += new System.EventHandler(this.OnCommand);
@@ -215,6 +215,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "ControlForm";
             this.Text = "Control";
             this.TopMost = true;

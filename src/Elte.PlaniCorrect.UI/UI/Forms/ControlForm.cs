@@ -13,8 +13,6 @@ namespace Elte.PlaniCorrect.UI.Forms
 {
     public partial class ControlForm : Form
     {
-        private Layout layout;
-
         public ControlForm()
         {
             InitializeComponent();
@@ -23,7 +21,6 @@ namespace Elte.PlaniCorrect.UI.Forms
 
         private void InitializeMembers()
         {
-            this.layout = new Layout();
         }
 
         private void OnCommand(object sender, EventArgs e)
@@ -35,7 +32,7 @@ namespace Elte.PlaniCorrect.UI.Forms
                 switch ((Commands)control.Tag)
                 {
                     case Commands.AddCircle:
-                        layout.Lines.Add(new Circle());
+                        Program.Layout.Lines.Add(new Circle());
                         RefreshLineList();
                         break;
                     case Commands.AddRay:
@@ -50,10 +47,12 @@ namespace Elte.PlaniCorrect.UI.Forms
         {
             lineList.Items.Clear();
 
-            foreach (var line in layout.Lines)
+            foreach (var line in Program.Layout.Lines)
             {
                 lineList.Items.Add(CreateLineListItem(line));
             }
+
+            Program.Screen.Picture.Invalidate();
         }
 
         private ListViewItem CreateLineListItem(Line line)
@@ -69,8 +68,7 @@ namespace Elte.PlaniCorrect.UI.Forms
 
         private void ControlForm_Load(object sender, EventArgs e)
         {
-            var f = new Forms.ScreenForm();
-            f.Show();
+            Program.Screen.Show();
         }
 
         

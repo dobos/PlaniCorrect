@@ -58,8 +58,12 @@ namespace Elte.PlaniCorrect.Lib
         {
             var path = new GraphicsPath();
 
-            path.AddEllipse(center.X, center.Y, 2 * radius, 2 * radius);
-            path.AddEllipse(center.X, center.Y, 2 * (radius + width), 2 * (radius + width));
+            var w = radius + width / 2;
+            path.AddEllipse(center.X -w, center.Y - w, 2 * w, 2 * w);
+            w = radius - width / 2;
+            path.AddEllipse(center.X - w, center.Y - w, 2 * w, 2 * w);
+
+            g.FillPath(Brushes.Black, path);
         }
     }
 }
