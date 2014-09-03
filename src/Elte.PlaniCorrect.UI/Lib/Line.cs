@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 
 namespace Elte.PlaniCorrect.Lib
 {
-    abstract class Line : ICloneable
+    public abstract class Line : ICloneable
     {
         private string name;
         private Color color;

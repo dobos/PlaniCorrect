@@ -48,6 +48,18 @@
     <Compile Include="Lib\Layout.cs" />
     <Compile Include="Lib\Line.cs" />
     <Compile Include="Lib\Ray.cs" />
+    <Compile Include="UI\Controls\CircleParameters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CircleParameters.Designer.cs">
+      <DependentUpon>CircleParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\RayParameters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\RayParameters.Designer.cs">
+      <DependentUpon>RayParameters.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Enum.cs" />
     <Compile Include="UI\Forms\ControlForm.cs">
       <SubType>Form</SubType>
@@ -73,6 +85,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Controls\CircleParameters.resx">
+      <DependentUpon>CircleParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\RayParameters.resx">
+      <DependentUpon>RayParameters.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\ControlForm.resx">
       <DependentUpon>ControlForm.cs</DependentUpon>
     </EmbeddedResource>

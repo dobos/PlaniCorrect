@@ -41,13 +41,14 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolbar_Add_AddCircle = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbar_Add_AddRay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lineList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolbar_Add_AddCircle = new System.Windows.Forms.ToolStripMenuItem();
+            this.linePanel = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -149,11 +150,21 @@
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
             this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             // 
+            // toolbar_Add_AddCircle
+            // 
+            this.toolbar_Add_AddCircle.Name = "toolbar_Add_AddCircle";
+            this.toolbar_Add_AddCircle.Size = new System.Drawing.Size(152, 22);
+            this.toolbar_Add_AddCircle.Tag = Elte.PlaniCorrect.UI.Commands.AddCircle;
+            this.toolbar_Add_AddCircle.Text = "Add circle";
+            this.toolbar_Add_AddCircle.Click += new System.EventHandler(this.OnCommand);
+            // 
             // toolbar_Add_AddRay
             // 
             this.toolbar_Add_AddRay.Name = "toolbar_Add_AddRay";
             this.toolbar_Add_AddRay.Size = new System.Drawing.Size(152, 22);
+            this.toolbar_Add_AddRay.Tag = Elte.PlaniCorrect.UI.Commands.AddRay;
             this.toolbar_Add_AddRay.Text = "Add ray";
+            this.toolbar_Add_AddRay.Click += new System.EventHandler(this.OnCommand);
             // 
             // toolStripButton1
             // 
@@ -186,29 +197,32 @@
             this.lineList.GridLines = true;
             this.lineList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lineList.Location = new System.Drawing.Point(0, 49);
+            this.lineList.MultiSelect = false;
             this.lineList.Name = "lineList";
             this.lineList.Size = new System.Drawing.Size(505, 244);
             this.lineList.TabIndex = 3;
             this.lineList.UseCompatibleStateImageBehavior = false;
             this.lineList.View = System.Windows.Forms.View.Details;
+            this.lineList.SelectedIndexChanged += new System.EventHandler(this.lineList_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
             // 
-            // toolbar_Add_AddCircle
+            // linePanel
             // 
-            this.toolbar_Add_AddCircle.Name = "toolbar_Add_AddCircle";
-            this.toolbar_Add_AddCircle.Size = new System.Drawing.Size(152, 22);
-            this.toolbar_Add_AddCircle.Tag = Elte.PlaniCorrect.UI.Commands.AddCircle;
-            this.toolbar_Add_AddCircle.Text = "Add circle";
-            this.toolbar_Add_AddCircle.Click += new System.EventHandler(this.OnCommand);
+            this.linePanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.linePanel.Location = new System.Drawing.Point(305, 49);
+            this.linePanel.Name = "linePanel";
+            this.linePanel.Size = new System.Drawing.Size(200, 244);
+            this.linePanel.TabIndex = 4;
             // 
             // ControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 315);
+            this.Controls.Add(this.linePanel);
             this.Controls.Add(this.lineList);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
@@ -250,5 +264,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ListView lineList;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Panel linePanel;
     }
 }

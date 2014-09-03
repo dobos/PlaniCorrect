@@ -13,6 +13,8 @@ namespace Elte.PlaniCorrect.UI.Forms
 {
     public partial class ControlForm : Form
     {
+        private Control parametersControl;
+
         public ControlForm()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace Elte.PlaniCorrect.UI.Forms
 
         private void InitializeMembers()
         {
+            this.parametersControl = null;
         }
 
         private void OnCommand(object sender, EventArgs e)
@@ -36,6 +39,8 @@ namespace Elte.PlaniCorrect.UI.Forms
                         RefreshLineList();
                         break;
                     case Commands.AddRay:
+                        Program.Layout.Lines.Add(new Ray());
+                        RefreshLineList();
                         break;
                     default:
                         throw new NotImplementedException();
@@ -69,6 +74,42 @@ namespace Elte.PlaniCorrect.UI.Forms
         private void ControlForm_Load(object sender, EventArgs e)
         {
             Program.Screen.Show();
+        }
+
+        private void lineList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (parametersControl != null)
+            {
+                parametersControl.Parent.Controls.Remove(parametersControl);
+                parametersControl.Dispose();
+                parametersControl = null;
+            }
+
+            if (lineList.SelectedIndices.Count > 0)
+            {
+                var item = lineList.Items[lineList.SelectedIndices[0]].Tag;
+
+                if (item is Circle)
+                {
+                    var pc = new Controls.CircleParameters()
+                    {
+                        Circle = (Circle)item
+                    };
+
+                    parametersControl = pc;
+                }
+                else if (item is Ray)
+                {
+                    var pc = new Controls.RayParameters()
+                    {
+                        Ray = (Ray)item
+                    };
+
+                    parametersControl = pc;
+                }
+
+                linePanel.Controls.Add(parametersControl);
+            }
         }
 
         

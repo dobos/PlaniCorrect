@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 
 namespace Elte.PlaniCorrect.Lib
 {
-    class Circle : Line
+    public class Circle : Line
     {
         private float radius;
         private float width;

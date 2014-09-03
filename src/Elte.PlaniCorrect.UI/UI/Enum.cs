@@ -9,6 +9,14 @@ namespace Elte.PlaniCorrect.UI
     public enum Commands
     {
         AddCircle,
-        AddRay
+        AddRay,
+        RadiusUp,
+        RadiusDown,
+        AngleUp,
+        AngleDown,
+        WidthUp,
+        WidthDown,
+        Width2Up,
+        Width2Down,
     }
 }

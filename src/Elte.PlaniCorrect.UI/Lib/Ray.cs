@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 
 namespace Elte.PlaniCorrect.Lib
 {
-    class Ray : Line
+    public class Ray : Line
     {
         private float angle;
         private float radius;
@@ -76,7 +76,20 @@ namespace Elte.PlaniCorrect.Lib
         {
             var pp = new PointF[4];
 
+            var cosa = Math.Cos(angle / 180.0 * Math.PI);
+            var sina = Math.Sin(angle / 180.0 * Math.PI);
 
+            pp[0].X = (float)(radius * cosa + width1 * sina / 2);
+            pp[0].Y = (float)(radius * sina - width1 * cosa / 2);
+            pp[1].X = (float)(radius * cosa - width1 * sina / 2);
+            pp[1].Y = (float)(radius * sina + width1 * cosa / 2);
+
+            var r2 = g.VisibleClipBounds.Width;
+            pp[2].X = (float)(r2 * cosa - width2 * sina / 2);
+            pp[2].Y = (float)(r2 * sina + width2 * cosa / 2);
+            pp[3].X = (float)(r2 * cosa + width2 * sina / 2);
+            pp[3].Y = (float)(r2 * sina - width2 * cosa / 2);
+            
 
             var path = new GraphicsPath();
             path.AddPolygon(pp);

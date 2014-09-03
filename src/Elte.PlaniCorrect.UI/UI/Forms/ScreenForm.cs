@@ -33,6 +33,8 @@ namespace Elte.PlaniCorrect.UI.Forms
         {
             var bounds = e.Graphics.VisibleClipBounds;
 
+            e.Graphics.Clear(Color.White);
+
             e.Graphics.TranslateTransform(bounds.Width / 2, bounds.Height / 2);
 
             foreach (var line in Program.Layout.Lines)
