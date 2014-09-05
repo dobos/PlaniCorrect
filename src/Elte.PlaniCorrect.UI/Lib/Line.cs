@@ -12,6 +12,7 @@ namespace Elte.PlaniCorrect.Lib
     {
         private string name;
         private Color color;
+        private bool selected;
 
         public string Name
         {
@@ -23,6 +24,12 @@ namespace Elte.PlaniCorrect.Lib
         {
             get { return color; }
             set { color = value; }
+        }
+
+        public bool Selected
+        {
+            get { return selected; }
+            set { selected = value; }
         }
 
         protected Line()
